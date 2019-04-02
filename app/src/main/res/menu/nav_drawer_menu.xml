@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/Most_Views"
+            android:title="@string/most_views"
+            android:icon="@drawable/favorite_heart_red"/>
+
+        <item android:id="@+id/popular"
+            android:title="@string/ratings"
+            android:icon="@drawable/high_rating_rd"/>
+
+        <item android:id="@+id/screen_size"
+            android:title="@string/screen_size"
+            android:icon="@drawable/photo_size_select_rd"/>
+
+    </group>
+
+</menu>

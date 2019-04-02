@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">RecyclerViewJsoup</string>
+    <string name="image">Images from wevsite</string>
+    <string name="most_views">Most Views</string>
+    <string name="ratings">Popular</string>
+    <string name="screen_size">Adjust Image Size</string>
+    <string name="nav_drawer_open">Open Navigation Drawer</string>
+    <string name="nav_drawer_close">Close Navigation Drawer</string>
+    <string name="setWallpaper">Set as Wallpaper</string>
+    <string name="NextButton">Next</string>
+    <string name="fragment_title">Moved to fragment</string>
+</resources>
