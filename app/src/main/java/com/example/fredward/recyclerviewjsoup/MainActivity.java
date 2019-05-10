@@ -33,7 +33,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements MyAdapter.OnClickResponse {
     //TODO:(Completed) copy from the Jsoup practice and then move forward from there
     private static final String TAG = "MainActivity";
-    private String URL = "https://www.wallpapermaiden.com/category/anime/1080x1920";
+    private String URL = "https://www.wallpapermaiden.com/category/anime/768x1280";
     String nextURL = "https://www.wallpapermaiden.com/category/anime/1080x1920?page=";
     private String source, imageName;
     private DrawerLayout mDrawerLayout;
@@ -97,8 +97,6 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnClick
             super.onPreExecute();
             progressDialog = new ProgressDialog(MainActivity.this);
             progressDialog.show();
-
-
         }
 
         @Override
@@ -106,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnClick
             super.onPostExecute(aVoid);
             initRecyclerView();
             progressDialog.dismiss();
-
         }
 
         @Override
@@ -131,13 +128,11 @@ public class MainActivity extends AppCompatActivity implements MyAdapter.OnClick
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-
             return null;
         }
     }
 
-    private void initRecyclerView() {
+    void initRecyclerView() {
         Log.i(TAG, "start recycler view");
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

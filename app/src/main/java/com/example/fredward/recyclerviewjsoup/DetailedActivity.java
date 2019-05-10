@@ -7,14 +7,15 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 
@@ -40,6 +41,12 @@ public class DetailedActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        //Get Screen size
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        //set each metric into height and wiidth variables
+        int h = displayMetrics.heightPixels;
+        int w = displayMetrics.widthPixels;
 
 
 
@@ -64,7 +71,6 @@ public class DetailedActivity extends AppCompatActivity {
                 .load(Image)
                 .into(imageView);
     }
-
     //TODO: Look over documentation on glide specifically Target and all the overrides
     //TODO: Find if there is a better way to control re-sizeing and reducing pixelated images
     private void setWallpaper(final String image, Button wallpaperButton) {
@@ -74,12 +80,13 @@ public class DetailedActivity extends AppCompatActivity {
                 Glide.with(DetailedActivity.this)
                         .asBitmap()
                         .load(image)
-                        .apply(RequestOptions.centerCropTransform())
                         .into(new SimpleTarget<Bitmap>() {
                             @Override
                             public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
                                 try {
                                     WallpaperManager.getInstance(DetailedActivity.this).setBitmap(resource);
+                                    Toast.makeText(DetailedActivity.this,"Wallpaper changed",
+                                            Toast.LENGTH_SHORT).show();
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }

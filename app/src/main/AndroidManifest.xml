@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".DetailedActivity"/>
+        <activity android:name=".NextPage"/>
     </application>
 
 </manifest>

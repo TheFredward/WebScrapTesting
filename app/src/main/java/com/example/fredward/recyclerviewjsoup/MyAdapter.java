@@ -2,6 +2,7 @@ package com.example.fredward.recyclerviewjsoup;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -65,6 +66,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                     Log.i(TAG, "the next button has been clicked");
                     pageCount = pageCount + 1;
                     Log.i(TAG, "Website: " + URL + pageCount);
+                    Intent intent = new Intent(mContext,NextPage.class);
+                    intent.putExtra("pageCount",pageCount);
+                    mContext.startActivity(intent);
                 }
             });
         } else {
